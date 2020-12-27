@@ -34,7 +34,6 @@ namespace Companion
             var entities = this.GameController.Entities;
             var buffs = player.Buffs;
             var life = player.GetComponent<Life>();
-            var plagueBearerCharges = 0;
 
            
 
@@ -59,7 +58,25 @@ namespace Companion
             bool enemiesNearby = false;
             foreach (var entity in entities)
             {
-                if (entity.IsAlive && entity.IsHostile && entity.IsTargetable && entity.Rarity>0)
+                if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.White && this.Settings.WhiteMonster==false)
+                {
+                    break;
+                }
+                else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Magic && this.Settings.MagiceMonster == false)
+                {
+                    break;
+                }
+                else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Rare && this.Settings.RareMonster == false)
+                {
+                    break;
+                }
+                else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Unique && this.Settings.UniqueMonster == false)
+                {
+                    break;
+                }
+
+
+                if (entity.IsAlive && entity.IsHostile && entity.IsTargetable)
                 {
                     float distance = (player.Pos - entity.Pos).Length();
                     if (distance <= this.Settings.Range)
@@ -71,17 +88,6 @@ namespace Companion
 
             bool auraOn = buffs.Any(b => b.Name == "corrosive_shroud_aura");
 
-            if (auraOn)
-            {
-
-                //IEnumerable<Buff> query = buffs.Where(b => b.Name == "corrosive_shroud_aura");
-                foreach(Buff b in buffs)
-                {
-                    //DebugWindow.LogError(b.Charges.ToString());
-                    DebugWindow.LogError(b.ToString());
-                    //DebugWindow.LogError(b.Charges.ToString());
-                }
-            }
 
             bool switchState = false;
             if (enemiesNearby)
