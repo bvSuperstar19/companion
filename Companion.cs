@@ -64,31 +64,33 @@ namespace Companion
                 if (entity.IsAlive && entity.IsHostile && entity.IsTargetable)
                 {
 
-                    if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.White && this.Settings.WhiteMonster == false)
-                    {
-                        DebugWindow.LogMsg("reached Normal");
-                        break;
-                    }
-                    else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Magic && this.Settings.MagiceMonster == false)
-                    {
-                        DebugWindow.LogMsg("reached Magic");
-                        break;
-
-                    }
-                    else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Rare && this.Settings.RareMonster == false)
-                    {
-                        DebugWindow.LogMsg("reached Rare");
-                        break;
-                    }
-                    else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Unique && this.Settings.UniqueMonster == false)
-                    {
-                        DebugWindow.LogMsg("reached Unique");
-                        break;
-                    }
+                    
 
                     float distance = (player.Pos - entity.Pos).Length();
                     if (distance <= this.Settings.Range)
                     {
+                        if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.White && this.Settings.WhiteMonster == false)
+                        {
+                            DebugWindow.LogMsg("reached Normal");
+                            break;
+                        }
+                        else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Magic && this.Settings.MagiceMonster == false)
+                        {
+                            DebugWindow.LogMsg("reached Magic");
+                            break;
+
+                        }
+                        else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Rare && this.Settings.RareMonster == false)
+                        {
+                            DebugWindow.LogMsg("reached Rare");
+                            break;
+                        }
+                        else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Unique && this.Settings.UniqueMonster == false)
+                        {
+                            DebugWindow.LogMsg("reached Unique");
+                            break;
+                        }
+
                         enemiesNearby = true;
                     }
                 }
