@@ -33,9 +33,9 @@ namespace Companion
             var entities = this.GameController.Entities;
             var buffs = player.Buffs;
             var life = player.GetComponent<Life>();
+            var plagueBearerCharges = 0;
 
-
-            DebugWindow.LogError(buffs.ToString());
+           
 
             if (!this.Settings.Enable)
             {
@@ -69,6 +69,15 @@ namespace Companion
             }
 
             bool auraOn = buffs.Any(b => b.Name == "corrosive_shroud_aura");
+
+            if (auraOn)
+            {
+                IEnumerable<Buff> query = buffs.Where(b => b.Name == "corrosive_shroud_aura");
+                foreach(Buff b in query)
+                {
+                    DebugWindow.LogError(b.Charges.ToString());
+                }    
+            }
 
             bool switchState = false;
             if (enemiesNearby)
