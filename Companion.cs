@@ -72,23 +72,23 @@ namespace Companion
                         if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.White && this.Settings.WhiteMonster == false)
                         {
                             DebugWindow.LogMsg("reached Normal");
-                            break;
+                            continue;
                         }
                         else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Magic && this.Settings.MagiceMonster == false)
                         {
                             DebugWindow.LogMsg("reached Magic");
-                            break;
+                            continue;
 
                         }
                         else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Rare && this.Settings.RareMonster == false)
                         {
                             DebugWindow.LogMsg("reached Rare");
-                            break;
+                            continue;
                         }
                         else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Unique && this.Settings.UniqueMonster == false)
                         {
                             DebugWindow.LogMsg("reached Unique");
-                            break;
+                            continue;
                         }
 
                         enemiesNearby = true;
