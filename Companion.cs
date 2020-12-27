@@ -26,7 +26,7 @@ namespace Companion
 
         public override bool Initialise()
         {
-            foreach (var inv in this.GameController.Game.IngameState.ServerData.PlayerStashTabs)
+            foreach (var inv in this.GameController.Game.IngameState.ServerData.PlayerInventories)
             {
                 DebugWindow.LogMsg(inv.ToString());
 
