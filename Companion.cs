@@ -29,7 +29,6 @@ namespace Companion
             foreach (var inv in this.GameController.Game.IngameState.ServerData.PlayerInventories)
             {
                 DebugWindow.LogMsg(inv.ToString());
-                break;
 
             }
 
