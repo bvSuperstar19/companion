@@ -35,7 +35,7 @@ namespace Companion
             var life = player.GetComponent<Life>();
 
 
-            DebugWindow.LogError(buffs.ToString();
+            DebugWindow.LogError(buffs.ToString());
 
             if (!this.Settings.Enable)
             {
