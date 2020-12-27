@@ -14,6 +14,7 @@ namespace Companion
     public class Companion : BaseSettingsPlugin<CompanionSetting>
     {
         private DateTime _lastCast = DateTime.MinValue;
+        
 
         private void OnToggleSSkillSetNodeChange()
         {
@@ -77,8 +78,8 @@ namespace Companion
                 foreach(Buff b in buffs)
                 {
                     //DebugWindow.LogError(b.Charges.ToString());
-                    DebugWindow.LogError(b.Name);
-                    DebugWindow.LogError(b.Charges.ToString());
+                    DebugWindow.LogError(b.ToString());
+                    //DebugWindow.LogError(b.Charges.ToString());
                 }
             }
 
