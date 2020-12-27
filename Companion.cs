@@ -8,13 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SharpDX.Mathematics;
+using ExileCore.PoEMemory.MemoryObjects;
 
 namespace Companion
 {
     public class Companion : BaseSettingsPlugin<CompanionSetting>
     {
         private DateTime _lastCast = DateTime.MinValue;
+
         
+
 
         private void OnToggleSSkillSetNodeChange()
         {
@@ -23,6 +26,15 @@ namespace Companion
 
         public override bool Initialise()
         {
+            foreach (var inv in this.GameController.Game.IngameState.ServerData.PlayerInventories)
+            {
+                DebugWindow.LogMsg(inv.ToString());
+                break;
+
+            }
+
+
+
             Input.RegisterKey(this.Settings.ToggleSkillSetNode);
             this.Settings.ToggleSkillSetNode.OnValueChanged += OnToggleSSkillSetNodeChange;
             return true;
@@ -71,23 +83,23 @@ namespace Companion
                     {
                         if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.White && this.Settings.WhiteMonster == false)
                         {
-                            DebugWindow.LogMsg("reached Normal");
+                            //DebugWindow.LogMsg("reached Normal");
                             continue;
                         }
                         else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Magic && this.Settings.MagiceMonster == false)
                         {
-                            DebugWindow.LogMsg("reached Magic");
+                            //DebugWindow.LogMsg("reached Magic");
                             continue;
 
                         }
                         else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Rare && this.Settings.RareMonster == false)
                         {
-                            DebugWindow.LogMsg("reached Rare");
+                            //DebugWindow.LogMsg("reached Rare");
                             continue;
                         }
                         else if (entity.Rarity == ExileCore.Shared.Enums.MonsterRarity.Unique && this.Settings.UniqueMonster == false)
                         {
-                            DebugWindow.LogMsg("reached Unique");
+                            //DebugWindow.LogMsg("reached Unique");
                             continue;
                         }
 
