@@ -78,6 +78,7 @@ namespace Companion
                 {
                     //DebugWindow.LogError(b.Charges.ToString());
                     DebugWindow.LogError(b.Name);
+                    DebugWindow.LogError(b.Charges.ToString());
                 }
             }
 
