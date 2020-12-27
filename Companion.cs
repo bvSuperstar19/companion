@@ -59,7 +59,7 @@ namespace Companion
             bool enemiesNearby = false;
             foreach (var entity in entities)
             {
-                if (entity.IsAlive && entity.IsHostile && entity.IsTargetable)
+                if (entity.IsAlive && entity.IsHostile && entity.IsTargetable && entity.Rarity>0)
                 {
                     float distance = (player.Pos - entity.Pos).Length();
                     if (distance <= this.Settings.Range)
