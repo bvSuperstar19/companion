@@ -35,10 +35,10 @@
       <HintPath>C:\Desktop\myhud\PoeHelper\ExileCore.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
+      <HintPath>..\..\..\..\hud\ExileApi\packages\SharpDX.4.2.0\lib\net45\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Mathematics, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpDX.Mathematics.4.2.0\lib\net45\SharpDX.Mathematics.dll</HintPath>
+      <HintPath>..\..\..\..\hud\ExileApi\packages\SharpDX.Mathematics.4.2.0\lib\net45\SharpDX.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,6 +57,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{5539d732-34a7-44ab-9e28-116c3429b12a}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\GameOffsets\GameOffsets.csproj">
+      <Project>{38084bc9-079d-487e-b774-d2f407dc8389}</Project>
+      <Name>GameOffsets</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Loader\Loader.csproj">
+      <Project>{c6db5ae9-3c73-4950-8fa4-a92db4c7c1db}</Project>
+      <Name>Loader</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\StaticResources\StaticResources.csproj">
+      <Project>{909b1d89-ac80-45aa-8ac0-a1c343a041f4}</Project>
+      <Name>StaticResources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Updater\Updater.csproj">
+      <Project>{80948544-24f3-47d0-a50e-31c5ca973040}</Project>
+      <Name>Updater</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

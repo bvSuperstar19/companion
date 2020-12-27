@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SharpDX.Mathematics;
 
 namespace Companion
 {
@@ -32,6 +33,9 @@ namespace Companion
             var entities = this.GameController.Entities;
             var buffs = player.Buffs;
             var life = player.GetComponent<Life>();
+
+
+            DebugWindow.LogError(buffs.ToString();
 
             if (!this.Settings.Enable)
             {
