@@ -72,11 +72,13 @@ namespace Companion
 
             if (auraOn)
             {
-                IEnumerable<Buff> query = buffs.Where(b => b.Name == "corrosive_shroud_aura");
-                foreach(Buff b in query)
+
+                //IEnumerable<Buff> query = buffs.Where(b => b.Name == "corrosive_shroud_aura");
+                foreach(Buff b in buffs)
                 {
-                    DebugWindow.LogError(b.Charges.ToString());
-                }    
+                    //DebugWindow.LogError(b.Charges.ToString());
+                    DebugWindow.LogError(b.Name);
+                }
             }
 
             bool switchState = false;
