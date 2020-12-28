@@ -47,7 +47,7 @@ namespace Companion {
 
             if (Settings.smokeMineEnabled) {
                 var mines = localPlayer.GetComponent<Actor>().DeployedObjects.Where(x => x.Entity != null && x.Entity.Path == "Metadata/MiscellaneousObjects/RemoteMine").ToList();
-                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
+                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.Pos.ToString()));
                 if (mines.Count > 0) {
                     if (smokeMineLastPosition == mines.First().Entity.Pos) {
                         //Input.KeyDown(this.Settings.HotKeyDetonateMine);
