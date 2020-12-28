@@ -43,7 +43,7 @@ namespace Companion {
             #region Smoke Mine
             if (Settings.smokeMineEnabled) {
                 var mines = localPlayer.GetComponent<Actor>().DeployedObjects.Where(x => x.Entity != null && x.Entity.Path == "Metadata/MiscellaneousObjects/RemoteMine").ToList();
-                DebugWindow.LogMsg(mines.ToString());
+                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.Path));
             }
 
             #endregion
@@ -51,7 +51,7 @@ namespace Companion {
 
             #region Plague Bearer
 
-            if (!this.Settings.plagueBearerEnabled) {
+            if (this.Settings.plagueBearerEnabled) {
 
                 // Returns null if not enough mana
                 if (this.Settings.MinimumMana > life.CurMana) {
