@@ -55,7 +55,7 @@ namespace Companion {
                         smokeMineLastPosition = new SharpDX.Vector3(0, 0, 0);
                     }
                     else {
-                        smokeMineLastPosition = mines.First().Entity.Pos
+                        smokeMineLastPosition = mines.First().Entity.Pos;
                     }
 
                     //mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
