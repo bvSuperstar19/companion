@@ -51,6 +51,7 @@ namespace Companion {
                     if (mines.Any(x => x.Entity.Pos == smokeMineLastPosition)) {
                         Input.KeyDown(this.Settings.HotKeyDetonateMine);
                         Input.KeyUp(this.Settings.HotKeyDetonateMine);
+                        DebugWindow.LogMsg("pressed D");
                         smokeMineLastPosition = new SharpDX.Vector3(0, 0, 0);
                     }
                     else {
