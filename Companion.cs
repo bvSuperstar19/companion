@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SharpDX.Mathematics;
 using ExileCore.PoEMemory.MemoryObjects;
 
+
 namespace Companion {
     public class Companion : BaseSettingsPlugin<CompanionSetting> {
         private DateTime _lastCast = DateTime.MinValue;
@@ -41,11 +42,21 @@ namespace Companion {
             }
 
             #region Smoke Mine
+
+            SharpDX.Vector3 smokeMineLastPosition = new SharpDX.Vector3(0, 0, 0);
+
             if (Settings.smokeMineEnabled) {
                 var mines = localPlayer.GetComponent<Actor>().DeployedObjects.Where(x => x.Entity != null && x.Entity.Path == "Metadata/MiscellaneousObjects/RemoteMine").ToList();
                 if (mines.Count > 0) {
-                    Input.KeyDown(this.Settings.HotKeyDetonateMine);
-                    Input.KeyUp(this.Settings.HotKeyDetonateMine);
+                    if (smokeMineLastPosition == mines.First().Entity.Pos) {
+                        Input.KeyDown(this.Settings.HotKeyDetonateMine);
+                        Input.KeyUp(this.Settings.HotKeyDetonateMine);
+                        smokeMineLastPosition = new SharpDX.Vector3(0, 0, 0);
+                    }
+                    else {
+                        smokeMineLastPosition = mines.First().Entity.Pos
+                    }
+
                     //mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
                 }
 
