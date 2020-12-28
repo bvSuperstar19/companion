@@ -43,7 +43,12 @@ namespace Companion {
             #region Smoke Mine
             if (Settings.smokeMineEnabled) {
                 var mines = localPlayer.GetComponent<Actor>().DeployedObjects.Where(x => x.Entity != null && x.Entity.Path == "Metadata/MiscellaneousObjects/RemoteMine").ToList();
-                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
+                if (mines.Count > 0) {
+                    Input.KeyDown(this.Settings.HotKeyDetonateMine);
+                    Input.KeyUp(this.Settings.HotKeyDetonateMine);
+                    //mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
+                }
+
             }
 
             #endregion

@@ -7,6 +7,12 @@ namespace Companion {
         public ToggleNode Enable { get; set; } = new ToggleNode(true);
 
         public ToggleNode smokeMineEnabled { get; set; } = new ToggleNode(true);
+
+
+        public HotkeyNode HotKeyDetonateMine { get; set; } = new HotkeyNode(Keys.None);
+
+
+
         public ToggleNode plagueBearerEnabled { get; set; } = new ToggleNode(true);
 
         public RangeNode<int> MinimumMana { get; set; } = new RangeNode<int>(6, 0, 100);
