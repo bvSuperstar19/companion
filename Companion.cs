@@ -43,7 +43,7 @@ namespace Companion {
             #region Smoke Mine
             if (Settings.smokeMineEnabled) {
                 var mines = localPlayer.GetComponent<Actor>().DeployedObjects.Where(x => x.Entity != null && x.Entity.Path == "Metadata/MiscellaneousObjects/RemoteMine").ToList();
-                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.Path));
+                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
             }
 
             #endregion
