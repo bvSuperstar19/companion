@@ -47,10 +47,11 @@ namespace Companion {
 
             if (Settings.smokeMineEnabled) {
                 var mines = localPlayer.GetComponent<Actor>().DeployedObjects.Where(x => x.Entity != null && x.Entity.Path == "Metadata/MiscellaneousObjects/RemoteMine").ToList();
+                mines.ForEach(x => DebugWindow.LogMsg(x.Entity.ToString()));
                 if (mines.Count > 0) {
                     if (smokeMineLastPosition == mines.First().Entity.Pos) {
-                        Input.KeyDown(this.Settings.HotKeyDetonateMine);
-                        Input.KeyUp(this.Settings.HotKeyDetonateMine);
+                        //Input.KeyDown(this.Settings.HotKeyDetonateMine);
+                        //Input.KeyUp(this.Settings.HotKeyDetonateMine);
                         DebugWindow.LogMsg("pressed D");
                         smokeMineLastPosition = new SharpDX.Vector3(0, 0, 0);
                     }
